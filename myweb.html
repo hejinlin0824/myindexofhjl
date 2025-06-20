@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>何锦琳的工具箱</title>
+
+    <meta name="author" content="何锦琳">
+    <meta name="description" content="何锦琳的个人作品集，一个展示创意与技术的工具箱。">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0d6efd; /* Bootstrap Blue */
+            --dark-bg: #1a1a1a;
+            --light-bg: #2c2c2c;
+            --text-color: #f0f0f0;
+            --text-muted-color: #a0a0a0;
+            --card-border-color: #444;
+            --accent-glow: 0 0 15px rgba(13, 110, 253, 0.5);
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 300;
+        }
+
+        .navbar {
+            background-color: rgba(26, 26, 26, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(44, 44, 44, 0.9)), url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDc5NzV8MHwxfHNlYXJjaHw2fHxjb2RlfGVufDB8fHx8MTY3OTg1MjI3NXww&ixlib=rb-4.0.3&q=80&w=1920') no-repeat center center/cover;
+            padding: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero-section .lead {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            color: var(--text-muted-color);
+        }
+       
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: all 0.3s ease;
+            box-shadow: var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(13, 110, 253, 0.7);
+        }
+
+        .section-title {
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+            box-shadow: var(--accent-glow);
+        }
+
+        .project-card {
+            background-color: var(--light-bg);
+            border: 1px solid var(--card-border-color);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--primary-color);
+        }
+       
+        .card-img-top-icon-wrapper {
+            background: linear-gradient(135deg, #232526, #414345);
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+       
+        .card-img-top-icon-wrapper i {
+            font-size: 80px;
+            color: var(--primary-color);
+            text-shadow: 0 0 20px rgba(13, 110, 253, 0.6);
+            transition: transform 0.3s ease;
+        }
+       
+        .project-card:hover .card-img-top-icon-wrapper i {
+             transform: scale(1.1);
+        }
+       
+        .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+       
+        .card-title {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+       
+        .card-text {
+            color: var(--text-muted-color);
+            flex-grow: 1;
+        }
+
+        .footer {
+            background-color: #111;
+            padding: 2rem 0;
+            color: var(--text-muted-color);
+        }
+       
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+       
+        .footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-toolbox me-2"></i>
+                <strong>何锦琳的工具箱</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#about">关于我</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">我的项目</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">联系方式</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="display-3 text-white">欢迎来到何锦琳的工具箱</h1>
+            <p class="lead my-4">
+                这里是我用代码和创意构建的世界，<br class="d-none d-md-block"> 每一个项目都是一次对技术边界的探索。
+            </p>
+            <a href="#projects" class="btn btn-primary btn-lg">
+                <i class="fas fa-rocket me-2"></i>
+                查看我的作品
+            </a>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <section id="about" class="py-5">
+             <h2 class="section-title">关于我 | ABOUT ME</h2>
+             <div class="row align-items-center">
+                 <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                     <img src="https://i.pravatar.cc/300?u=hejinlin" class="rounded-circle img-fluid shadow-lg" alt="何锦琳头像" style="width: 250px; height: 250px; object-fit: cover;">
+                 </div>
+                 <div class="col-lg-8">
+                     <h3 class="fw-bold">何锦琳</h3>
+                     <p class="text-primary fs-5 mb-3">Web开发者 & 游戏爱好者</p>
+                     <p class="text-muted">
+                        你好！我是一名对编程充满热情的开发者。我享受将一个个想法通过代码变为现实的过程，无论是开发一个实用的小工具，还是制作一款有趣的游戏。这个“工具箱”记录了我的学习与成长之路，展示了我利用不同技术栈完成的项目。
+                     </p>
+                     <p class="text-muted">
+                        我热衷于学习新技术，并乐于接受挑战。我相信，好的软件不仅功能强大，更应拥有优雅的设计和流畅的用户体验。
+                     </p>
+                 </div>
+             </div>
+        </section>
+
+        <section id="projects" class="py-5">
+            <h2 class="section-title">我的项目 | PROJECTS</h2>
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="project-card w-100">
+                        <div class="card-img-top-icon-wrapper">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Java八股文背诵</h5>
+                            <p class="card-text">一个为Java面试准备的在线学习笔记，整理了核心知识点，方便随时查阅和复习。</p>
+                            <a href="https://hejinlin0824.github.io/my_java/" target="_blank" class="btn btn-outline-primary mt-auto">
+                                <i class="fas fa-external-link-alt me-2"></i>
+                                前往项目
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="project-card w-100">
+                         <div class="card-img-top-icon-wrapper">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">连连看游戏</h5>
+                            <p class="card-text">一款经典的休闲益智游戏。通过JavaScript实现游戏逻辑，锻炼逻辑思维能力。</p>
+                             <a href="https://hejinlin0824.github.io/llk/" target="_blank" class="btn btn-outline-primary mt-auto">
+                                <i class="fas fa-external-link-alt me-2"></i>
+                                前往项目
+                            </a>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="project-card w-100">
+                         <div class="card-img-top-icon-wrapper">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">飞机大战 1.0</h5>
+                            <p class="card-text">基于原生JavaScript开发的飞行射击游戏，实现了基本的玩家控制、敌人生成和碰撞检测。</p>
+                            <a href="https://hejinlin0824.github.io/planebattle1.0/" target="_blank" class="btn btn-outline-primary mt-auto">
+                                <i class="fas fa-external-link-alt me-2"></i>
+                                前往项目
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="project-card w-100">
+                         <div class="card-img-top-icon-wrapper">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">《绿色地狱》游戏Wiki</h5>
+                            <p class="card-text">一个为生存游戏《绿色地狱》玩家制作的非官方维基百科，提供游戏攻略和资料查询。</p>
+                            <a href="https://fl-labrecord.github.io/greenhellbyhejinlin/" target="_blank" class="btn btn-outline-primary mt-auto">
+                                <i class="fas fa-external-link-alt me-2"></i>
+                                前往项目
+                            </a>
+                        </div>
+                    </div>
+                </div>
+               
+                </div>
+                        <div class="card-body">
+                            <h5 class="card-title">新项目标题</h5>
+                            <p class="card-text">这里是新项目的简短描述，介绍它的功能和使用的技术。</p>
+                            <a href="#" target="_blank" class="btn btn-outline-primary mt-auto"> <i class="fas fa-external-link-alt me-2"></i>
+                                前往项目
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                -->
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="project-card w-100" style="border-style: dashed;">
+                        <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
+                            <i class="fas fa-cogs fa-3x text-muted mb-3"></i>
+                            <h5 class="card-title text-muted">更多精彩，敬请期待...</h5>
+                            <p class="card-text text-muted">我的工具箱正在不断扩充中！</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer text-center">
+        <div class="container">
+            <p>
+                <strong>与我联系</strong>
+            </p>
+            <div class="social-icons fs-4 mb-3">
+                <a href="https://github.com/hejinlin0824" target="_blank" class="mx-2"><i class="fab fa-github"></i></a>
+                </div>
+            <p class="mb-0">
+                &copy; <script>document.write(new Date().getFullYear())</script> 何锦琳的工具箱. All Rights Reserved.
+            </p>
+             <p class="mt-2 small text-white-50">
+                页面设计由 Gemini 助力
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Active link switching on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLi = document.querySelectorAll('.navbar-nav .nav-item .nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLi.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === `#${current}`) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
