@@ -42,7 +42,7 @@
         }
 
         .hero-section {
-            min-height: 80vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -179,10 +179,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#about">关于我</a>
+                        <a class="nav-link active" href="#projects">我的项目</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">我的项目</a>
+                        <a class="nav-link" href="#about">关于我</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">联系方式</a>
@@ -206,24 +206,6 @@
     </header>
 
     <main class="container my-5">
-        <section id="about" class="py-5">
-             <h2 class="section-title">关于我 | ABOUT ME</h2>
-             <div class="row align-items-center">
-                 <div class="col-lg-4 text-center mb-4 mb-lg-0">
-                     <img src="https://i.pravatar.cc/300?u=hejinlin" class="rounded-circle img-fluid shadow-lg" alt="何锦琳头像" style="width: 250px; height: 250px; object-fit: cover;">
-                 </div>
-                 <div class="col-lg-8">
-                     <h3 class="fw-bold">何锦琳</h3>
-                     <p class="text-primary fs-5 mb-3">Web开发者 & 游戏爱好者</p>
-                     <p class="text-muted">
-                        你好！我是一名对编程充满热情的开发者。我享受将一个个想法通过代码变为现实的过程，无论是开发一个实用的小工具，还是制作一款有趣的游戏。这个“工具箱”记录了我的学习与成长之路，展示了我利用不同技术栈完成的项目。
-                     </p>
-                     <p class="text-muted">
-                        我热衷于学习新技术，并乐于接受挑战。我相信，好的软件不仅功能强大，更应拥有优雅的设计和流畅的用户体验。
-                     </p>
-                 </div>
-             </div>
-        </section>
 
         <section id="projects" class="py-5">
             <h2 class="section-title">我的项目 | PROJECTS</h2>
@@ -293,29 +275,39 @@
                     </div>
                 </div>
                
+                到 结束 -->）。   ==
+                ==   将其粘贴到此注释块的上方，然后修改里面的图标、标题、描述和链接即可。                       ==
+                ======================================================================================
+                -->
+               
                 </div>
                         <div class="card-body">
-                            <h5 class="card-title">新项目标题</h5>
-                            <p class="card-text">这里是新项目的简短描述，介绍它的功能和使用的技术。</p>
-                            <a href="#" target="_blank" class="btn btn-outline-primary mt-auto"> <i class="fas fa-external-link-alt me-2"></i>
+                            <h5 class="card-title">新项目标题</h5> <p class="card-text">这里是新项目的简短描述，介绍它的功能和使用的技术。</p> <a href="#" target="_blank" class="btn btn-outline-primary mt-auto"> <i class="fas fa-external-link-alt me-2"></i>
                                 前往项目
                             </a>
                         </div>
                     </div>
                 </div>
                 -->
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                    <div class="project-card w-100" style="border-style: dashed;">
-                        <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
-                            <i class="fas fa-cogs fa-3x text-muted mb-3"></i>
-                            <h5 class="card-title text-muted">更多精彩，敬请期待...</h5>
-                            <p class="card-text text-muted">我的工具箱正在不断扩充中！</p>
-                        </div>
-                    </div>
                 </div>
-
-            </div>
         </section>
+
+        <section id="about" class="py-5">
+             <h2 class="section-title">关于我 | ABOUT ME</h2>
+             <div class="row align-items-center justify-content-center">
+                 <div class="col-lg-8">
+                     <h3 class="fw-bold text-center">何锦琳</h3>
+                     <p class="text-primary fs-5 mb-3 text-center">Web开发者 & 游戏爱好者</p>
+                     <p class="text-muted">
+                        你好！我是一名对编程充满热情的开发者。我享受将一个个想法通过代码变为现实的过程，无论是开发一个实用的小工具，还是制作一款有趣的游戏。这个“工具箱”记录了我的学习与成长之路，展示了我利用不同技术栈完成的项目。
+                     </p>
+                     <p class="text-muted">
+                        我热衷于学习新技术，并乐于接受挑战。我相信，好的软件不仅功能强大，更应拥有优雅的设计和流畅的用户体验。
+                     </p>
+                 </div>
+             </div>
+        </section>
+
     </main>
 
     <footer id="contact" class="footer text-center">
@@ -339,7 +331,7 @@
    
     <script>
         // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
@@ -350,7 +342,7 @@
 
         // Active link switching on scroll
         const sections = document.querySelectorAll('section[id]');
-        const navLi = document.querySelectorAll('.navbar-nav .nav-item .nav-link');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
         window.addEventListener('scroll', () => {
             let current = '';
@@ -361,7 +353,7 @@
                 }
             });
 
-            navLi.forEach(a => {
+            navLinks.forEach(a => {
                 a.classList.remove('active');
                 if (a.getAttribute('href') === `#${current}`) {
                     a.classList.add('active');
